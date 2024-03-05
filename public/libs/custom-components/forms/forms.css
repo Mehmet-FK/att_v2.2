@@ -1,0 +1,125 @@
+@import url("../root.css");
+
+/*?================================================ */
+/*! INPUT STYLES */
+/*?================================================ */
+.textfield {
+  position: relative;
+  width: 350px;
+}
+
+.outlined-textfield {
+  width: 300px;
+  padding: 8px;
+  border: 1px solid #bdbdbd;
+  border-radius: 5px;
+  outline: none;
+  transition: border-color 0.2s;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+}
+
+.outlined-textfield:focus {
+  border-color: #1976d2; /* color when focused */
+  border-width: 2px;
+}
+
+.outlined-textfield:focus + label {
+  top: 0px;
+  background-color: white;
+  padding: 0 5px;
+  font-size: 0.7em;
+  color: #1976d2; /* color when focused */
+  z-index: 2;
+}
+
+.textfield.focused label {
+  top: 0px;
+  background-color: white;
+  padding: 0 5px;
+  font-size: 0.7em;
+  z-index: 2;
+}
+
+label {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  background-color: white;
+  padding: 0 5px;
+  font-size: 0.9em;
+  transition: top 0.2s, font-size 0.2s, padding 0.2s, color 0.2s;
+  z-index: -1;
+  color: #ababab;
+}
+
+/*?================================================ */
+/*! SELECT STYLES */
+/*?================================================ */
+
+.basic-select {
+  position: relative;
+}
+
+.basic-select select {
+  appearance: none;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  border: 1px solid #bdbdbd;
+  border-radius: 5px;
+  font-size: 0.85em;
+  outline: none;
+}
+
+.basic-select label {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  background-color: #fff;
+  padding: 0 5px;
+  font-size: 0.9em;
+  color: #ababab;
+  pointer-events: none;
+  transition: 0.2s ease-out;
+  z-index: 2;
+}
+
+.basic-select select:focus + label {
+  top: 0;
+  font-size: 0.7em;
+  color: #1976d2;
+}
+
+.basic-select select:focus {
+  border-color: #1976d2;
+  border-width: 2px;
+}
+.basic-select.focused label {
+  top: 0;
+  font-size: 0.7em;
+  padding: 0 5px;
+}
+
+.select-arrow {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  text-align: center;
+  font-size: 0.8em;
+  color: #9c9c9c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-inline: 8px;
+  cursor: pointer;
+  transition: transform 0.15s;
+  pointer-events: none;
+}
+.select-open {
+  transform: rotate(180deg);
+}

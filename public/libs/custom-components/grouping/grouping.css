@@ -1,0 +1,70 @@
+.dropdown-container {
+  /* border: 1px solid #ccc; */
+  border-left: 3px solid #e10000;
+  transition: box-shadow 350ms ease-in-out;
+}
+.dropdown-container.open {
+  /* border: 3px solid #e10000; */
+  /* border-left-width: 5px; */
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  /* padding-bottom: 1rem; */
+}
+
+.dropdown-container header {
+  cursor: pointer;
+  font-size: 0.6rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+.dropdown-container header:hover {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  transition: box-shadow 150ms ease-in-out;
+}
+.dropdown-container.open header:hover {
+  box-shadow: none;
+  transition: box-shadow 350ms ease-in-out;
+}
+
+.dropdown-container h5 {
+  text-transform: uppercase;
+}
+
+.dropdown-container .expand {
+  transform: rotate(45deg);
+  font-size: 1.8em;
+  transition: transform 350ms;
+  user-select: none;
+}
+
+.dropdown-container.open .expand {
+  transform: rotate(0);
+}
+.dropdown-container.open .content {
+  overflow: auto;
+  overflow-x: hidden;
+  max-height: 800vh;
+  opacity: 1;
+}
+
+.dropdown-container .content {
+  transition: max-height 250ms, opacity 350ms;
+  overflow: hidden;
+  max-height: 0px;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  opacity: 0;
+}
+
+/* padding can't be on article element because it won't collapse properly, add wrapper around contents */
+.dropdown-container .content-inner {
+  padding: 0.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+  width: 100%;
+  /* transition: opacity 250ms; */
+}

@@ -1,9 +1,9 @@
 import BaseComponent from "../BaseComponent.js";
-import { Store } from "../Store.js";
+import { Store } from "../../store/Store.js";
 
 const dashboardTemplate = document.createElement("template");
 dashboardTemplate.innerHTML = `
-<style> @import url(./components/dashboard/dashboard.css) </style>
+<style> @import url("./components/dashboard/dashboard.css") </style>
 <div class="container">
     <div class="grid-container">
 
@@ -25,7 +25,7 @@ class Dashboard extends BaseComponent {
   prepareCards = (modules) => {
     const container = this.shadowRoot.querySelector(".grid-container");
 
-    modules.forEach((module) => {
+    modules?.forEach((module) => {
       const card = document.createElement("att-card");
       card.setAttribute("title", module.groupTitle);
       card.setAttribute("description", module.groupTitle);
@@ -36,6 +36,7 @@ class Dashboard extends BaseComponent {
         btn.setAttribute("color", item.color);
         btn.setAttribute("icon", item.icon);
         btn.setAttribute("name", item.name);
+        btn.setAttribute("href", item.href);
 
         card.shadowRoot.querySelector(".btn-wrapper").append(btn);
       });
@@ -43,22 +44,28 @@ class Dashboard extends BaseComponent {
     });
   };
 
+  dataFetchedEvent = () => {
+    // console.log("data fetched");
+    //  this._data = Store.data.dashboard;
+    const layout = document.querySelector("att-layout");
+    this._data = layout._data;
+    this.prepareCards(this._data);
+  };
+
   connectedCallback() {
     const layout = document.querySelector("att-layout");
-    console.log("first");
-    layout.addEventListener("data-fetched", (e) => {
-      this._data = Store.data.dashboard;
-      console.log(Store.data.dashboard);
-      this.prepareCards(Store.data.dashboard);
-    });
+    layout.addEventListener("data-fetched", this.dataFetchedEvent);
+  }
+
+  disconnectedCallback() {
+    const layout = document.querySelector("att-layout");
+    layout.removeEventListener("data-fetched", this.dataFetchedEvent);
   }
 }
 
-customElements.define("att-dashboard", Dashboard);
-
 const cardTemplate = document.createElement("template");
 cardTemplate.innerHTML = `
-<style> @import url(./components/dashboard/dashboard.css) </style>
+<style> @import url("./components/dashboard/dashboard.css") </style>
         <div class="card">
             <div class="card bg-img"></div>
             <div class="info">
@@ -90,17 +97,15 @@ class Card extends BaseComponent {
   }
 }
 
-customElements.define("att-card", Card);
-
 const moduleBtnTemplate = document.createElement("template");
 moduleBtnTemplate.innerHTML = `
-<style> @import url(./components/dashboard/dashboard.css)</style>
-<a href="">
-              <div class="module-btn">
-                      <img src="">
-                      <p></p>
-              </div>
-</a>
+<style> @import url("./components/dashboard/dashboard.css")</style>
+  <a href="">
+    <div class="module-btn">
+      <img src="">
+      <p></p>
+    </div>
+  </a>
 `;
 class ModuleButton extends BaseComponent {
   constructor() {
@@ -112,9 +117,8 @@ class ModuleButton extends BaseComponent {
   connectedCallback() {
     this.shadowRoot.querySelector(".module-btn").style.backgroundColor =
       this.getAttribute("color");
-    this.shadowRoot.querySelector("a").href = this.getAttribute("name")
-      .toLowerCase()
-      .replace(" ", "-");
+    this.shadowRoot.querySelector("a").href = this.getAttribute("href");
+
     this.shadowRoot
       .querySelector("img")
       .setAttribute("src", this.getAttribute("icon"));
@@ -122,4 +126,11 @@ class ModuleButton extends BaseComponent {
     this.navigate();
   }
 }
+
+//* COMPONENTS REGISTRATION
+
+customElements.define("att-dashboard", Dashboard);
+customElements.define("att-card", Card);
 customElements.define("card-btn", ModuleButton);
+
+//* COMPONENTS REGISTRATION

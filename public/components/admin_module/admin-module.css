@@ -1,0 +1,170 @@
+@import url("../root.css");
+
+/*?================================================ */
+/*! UTILITY BAR STYLES */
+/*?================================================ */
+
+.utilbar-container {
+  display: flex;
+  column-gap: 5px;
+  padding-block: 1rem;
+}
+
+.searchbar-wrapper {
+  border: 1px solid #ccc;
+  height: 2.5rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  overflow: hidden;
+  width: 100%;
+}
+.searchbar {
+  outline: none;
+  border: none;
+  width: 100%;
+  height: 100%;
+  padding-left: 2rem;
+  /* margin-left: 2rem; */
+}
+.searchbar:focus {
+  background-color: #0000ff10;
+}
+
+.icon-wrapper {
+  display: flex;
+  position: absolute;
+  width: 2rem;
+  height: 2rem;
+  padding: 6px;
+}
+.icon-wrapper img {
+  width: 100%;
+  height: 100%;
+  opacity: 0.4;
+  /* border: 1px solid red; */
+}
+
+/*?================================================ */
+/*!  CARD STYLES */
+/*?================================================ */
+
+.card:hover {
+  border: 1px solid #f00 !important;
+}
+.created-by,
+.created-date {
+  display: block;
+  font-size: 0.7rem;
+}
+
+.card {
+  /* border:1px solid red !important; */
+  position: relative;
+}
+.card-body {
+  margin-right: 3rem;
+}
+.card-icon {
+  width: 3rem;
+  height: 3rem;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  outline: 1px solid #ccc;
+  outline-offset: 2px;
+  border-radius: 50%;
+}
+
+/*?================================================ */
+/*! ADD ENTITY STYLES */
+/*?================================================ */
+
+.field-info {
+  box-shadow: rgba(161, 161, 161, 0.2) 0px 2px 8px 0px;
+}
+.form-close-btn-wrapper {
+  padding: 0;
+  display: flex;
+  justify-content: end;
+}
+.form-close-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  cursor: pointer;
+  color: rgb(107, 0, 0);
+  border-radius: 5px;
+  transition: color 0.2s, background-color 0.2s;
+  user-select: none;
+}
+.form-close-btn:hover {
+  background-color: rgba(144, 0, 0, 0.249);
+}
+.add-field-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border-radius: 50%;
+}
+/*?================================================ */
+/*!  ADD ENTITY FORM STYLES */
+/*?================================================ */
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  max-height: 85vh;
+  overflow: auto;
+
+  /* scroll to bottom styles */
+  /* -webkit-overflow-scrolling: touch; */
+  /* -ms-scroll-chaining: none; */
+  /* overscroll-behavior: auto; */
+  /* -ms-scroll-snap-type: y proximity; */
+  /* scroll-snap-type: y proximity; */
+}
+
+.forms-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  row-gap: 10px;
+}
+
+.submit-wrapper {
+  padding: 1rem;
+  text-align: right;
+  /* scroll-behavior: smooth;
+  scroll-snap-align: end; */
+}
+
+.submit-wrapper button {
+  border: none;
+  outline: none;
+  padding: 6px 16px;
+  background-color: #0d6efd;
+  color: white;
+  border-radius: 5px;
+  text-transform: uppercase;
+  transition: box-shadow 0.2s;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.75;
+  letter-spacing: 0.03em;
+}
+
+.submit-wrapper button:hover {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}

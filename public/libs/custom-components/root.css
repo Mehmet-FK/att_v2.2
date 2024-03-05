@@ -13,9 +13,10 @@
 a {
   text-decoration: none;
 }
-
 ::-webkit-scrollbar {
-  width: 2px;
+  width: 4px;
+  height: 8px;
+  transition: all 1s;
 }
 
 /* Track */
@@ -27,8 +28,6 @@ a {
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: #888;
-  width: 12px;
-  cursor: pointer;
 }
 
 /* Handle on hover */

@@ -1,109 +1,110 @@
-:host{
-    --navbar-height: 4rem;
-    --att-red: #e10000;
-    --sidebar-open-width: 250px;
-    --sidebar-close-width: 4rem;
-    --transition: all 0.4s ease-in-out;
+/* @import url("../root.css"); */
+:host {
+  --navbar-height: 4rem;
+  --att-red: #e10000;
+  --sidebar-open-width: 250px;
+  --sidebar-close-width: 4rem;
+  --transition: all 0.4s ease-in-out;
 }
-*{
-    box-sizing: border-box;
+* {
+  box-sizing: border-box;
 }
-
-
-.space{
-    height: var(--navbar-height );
-    width: var(--sidebar-open-width);
-    display:flex;
-    justify-content: end;
-    align-items: center;
-    border-bottom: 1px solid #d8d8d8;
+a {
+  text-decoration: none;
 }
 
-
-
-
-
-/*?================================================ */
-    /*! NAVBAR */
-/*?================================================ */
-.navbar{
-    transition: var(--transition);
-    height: var(--navbar-height);
-    background-color:var(--att-red);
-    display: flex;
-    align-items: center;
-    position:fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    z-index: 1;
-    width: 100%;
-    box-shadow: rgba(0, 0, 0, 0.244) 0px 10px 15px -5px, rgba(0, 0, 0, 0.194) 0px -4px 6px -2px inset;
-}
-.navbar-container{
-    display: flex;
-    align-items: center;
-    padding-inline: 10px;
-}
-.logo-wrapper{
-    display: flex;
-    align-items: center;
-    column-gap: 20px;
-    
-}
-.navbar-logo{
-    height: 50px ;
-    transition: var(--transition);
+.space {
+  height: var(--navbar-height);
+  width: var(--sidebar-open-width);
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  border-bottom: 1px solid #d8d8d8;
 }
 
 /*?================================================ */
-    /*! SIDEBAR */
+/*! NAVBAR */
 /*?================================================ */
-
-.sidebar{
-    transition: var(--transition);
-    position:fixed;
-    height: calc(100% - var(--navbar-height));
-    /* background-color: #f19c9c; */
-    left: 0;
-    top: var(--navbar-height);
-    width: var(--sidebar-close-width);
-    border-right: 1px solid #e3e3e3; 
-    display: flex;
-    align-items: center;
-    justify-content: end;
+.navbar {
+  transition: var(--transition);
+  height: var(--navbar-height);
+  background-color: var(--att-red);
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
+  /* width: 100%; */
+  box-shadow: rgba(0, 0, 0, 0.244) 0px 10px 15px -5px,
+    rgba(0, 0, 0, 0.194) 0px -4px 6px -2px inset;
 }
-
-.open-icon{
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    padding: 4px;
-    cursor: pointer;
-    transition: all 0.15s ease-in-out;
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: 10px;
+  width: 100%;
 }
-.open-icon:hover{
-    background-color: #64646425;
+.logo-wrapper {
+  display: flex;
+  align-items: center;
+  column-gap: 20px;
 }
-.close-icon{
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    padding: 5px;
-    cursor: pointer;
-    margin-right: 8px;
-    visibility: hidden;
-    transition: all 0.15s ease-in-out;
-}
-.close-icon:hover{
-    background-color: #64646425;
+.navbar-logo {
+  height: 50px;
+  transition: var(--transition);
 }
 
 /*?================================================ */
-    /*! CONTENT */
+/*! SIDEBAR */
 /*?================================================ */
 
-.content{
-    margin-left: var(--sidebar-close-width) ;
-    transition: var(--transition);
+.sidebar {
+  transition: var(--transition);
+  position: fixed;
+  height: calc(100% - var(--navbar-height));
+  /* background-color: #f19c9c; */
+  left: 0;
+  top: var(--navbar-height);
+  width: var(--sidebar-close-width);
+  border-right: 1px solid #e3e3e3;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+.open-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  padding: 4px;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+}
+.open-icon:hover {
+  background-color: #64646425;
+}
+.close-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  padding: 5px;
+  cursor: pointer;
+  margin-right: 8px;
+  visibility: hidden;
+  transition: all 0.15s ease-in-out;
+}
+.close-icon:hover {
+  background-color: #64646425;
+}
+
+/*?================================================ */
+/*! CONTENT */
+/*?================================================ */
+
+.content {
+  margin-left: var(--sidebar-close-width);
+  transition: var(--transition);
 }
