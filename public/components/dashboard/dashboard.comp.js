@@ -3,7 +3,7 @@ import { Store } from "../../store/Store.js";
 
 const dashboardTemplate = document.createElement("template");
 dashboardTemplate.innerHTML = `
-<style> @import url("./components/dashboard/dashboard.css") </style>
+<style> @import url("/components/dashboard/dashboard.css") </style>
 <div class="container">
     <div class="grid-container">
 

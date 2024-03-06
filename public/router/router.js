@@ -7,6 +7,7 @@ const pathToRegex = (path) =>
   new RegExp("^" + path.replace(/\//g, "\\/").replace(/:\w+/g, "(.+)") + "$");
 
 const getParams = (match) => {
+  console.log(match);
   const values = match.result.slice(1);
   const keys = Array.from(match.route.path.matchAll(/:(\w+)/g)).map(
     (result) => result[1]
@@ -23,7 +24,6 @@ const getParams = (match) => {
 //   history.pushState(null, null, url);
 //   router();
 // };
-
 export const router = async () => {
   // console.log("/edit-entity/asdasd".match(/^\/edit-entity\/(.+)$/));
   const routes = [
@@ -44,7 +44,6 @@ export const router = async () => {
   let match = potentialMatches.find(
     (potentialMatch) => potentialMatch.result !== null
   );
-  console.log(getParams(match));
 
   if (!match) {
     match = {
@@ -52,12 +51,14 @@ export const router = async () => {
       result: [location.pathname],
     };
   }
+  // console.log(match);
   const view = new match.route.view(getParams(match));
 
   //? document.querySelector("#root").innerHTML = await view.getHtml();
   const layout = document.querySelector("att-layout");
   const newPage = await view.getHtml();
   const oldPage = layout.querySelector(".page");
+  // console.log(oldPage);
   if (oldPage) {
     layout.replaceChild(newPage, oldPage);
   } else {

@@ -1,4 +1,4 @@
-import BasePage from "/pages/BasePage.js";
+import BasePage from "../BasePage.js";
 
 export default class EditEntity extends BasePage {
   constructor(params) {
